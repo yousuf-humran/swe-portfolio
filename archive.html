@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Archive</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+ 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="media/favicon-black.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/png" href="media/favicon-light.png" media="(prefers-color-scheme: dark)">
+    
+    <style>
+        :root {
+            --bg-color: #111111;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --nav-indicator: #3f3f46;
+            --tag-bg: rgba(45, 212, 191, 0.1);
+            --tag-text: #5eead4;
+            --row-hover: rgba(255, 255, 255, 0.03);
+        }
+
+        [data-theme="blue"] {
+            --bg-color: #0f172a;
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --nav-indicator: #475569;
+            --tag-bg: rgba(45, 212, 191, 0.1);
+            --tag-text: #5eead4;
+            --row-hover: rgba(30, 41, 59, 0.5);
+        }
+
+        [data-theme="light"] {
+            --bg-color: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --nav-indicator: #cbd5e1;
+            --tag-bg: rgba(37, 99, 235, 0.1); 
+            --tag-text: #1d4ed8; 
+            --row-hover: rgba(0, 0, 0, 0.02);
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-color);
+            color: var(--text-secondary);
+            transition: background-color 0.3s ease;
+        }
+
+        .archive-tag {
+            background-color: var(--tag-bg);
+            color: var(--tag-text);
+        }
+
+        .back-link {
+            color: var(--tag-text);
+            transition: transform 0.3s ease;
+        }
+        .back-link:hover { transform: translateX(-4px); }
+
+        .project-row {
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+            transition: background-color 0.2s ease;
+        }
+        
+        .project-row:hover {
+            background-color: var(--row-hover);
+        }
+
+        .external-link {
+            transition: color 0.3s ease;
+        }
+        .external-link:hover {
+            color: var(--tag-text);
+        }
+    </style>
+</head>
+
+<body class="leading-relaxed selection:bg-teal-300 selection:text-teal-900">
+
+    <div class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24">
+        
+        <a href="index.html" class="back-link group mb-2 inline-flex items-center font-semibold text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="mr-1 h-4 w-4" aria-hidden="true">
+                <path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd"></path>
+            </svg>
+            Yousuf Humran
+        </a>
+
+        <h1 class="text-4xl font-bold tracking-tight text-[var(--text-primary)] sm:text-5xl mb-6">All Projects</h1>
+
+        <div class="overflow-x-auto">
+            <table class="mt-12 w-full border-collapse text-left">
+                <thead class="sticky top-0 z-10 border-b border-slate-300/10 bg-[var(--bg-color)]/75 py-5 backdrop-blur">
+                    <tr>
+                        <th class="py-4 pr-8 text-sm font-semibold text-[var(--text-primary)]">Year</th>
+                        <th class="py-4 pr-8 text-sm font-semibold text-[var(--text-primary)]">Project</th>
+                        <th class="hidden py-4 pr-8 text-sm font-semibold text-[var(--text-primary)] lg:table-cell">Made at</th>
+                        <th class="hidden py-4 pr-8 text-sm font-semibold text-[var(--text-primary)] lg:table-cell">Built with</th>
+                        <th class="py-4 text-sm font-semibold text-[var(--text-primary)]">Link</th>
+                    </tr>
+                </thead>
+                <tbody class="align-baseline">
+                    
+                    <tr class="project-row group">
+                        <td class="py-4 pr-4 text-sm">2024</td>
+                        <td class="py-4 pr-4 font-semibold text-[var(--text-primary)]">Spotify Connected App</td>
+                        <td class="hidden py-4 pr-4 text-sm lg:table-cell">Personal</td>
+                        <td class="hidden py-4 pr-4 lg:table-cell">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="archive-tag rounded-full px-3 py-1 text-xs font-medium">React</span>
+                                <span class="archive-tag rounded-full px-3 py-1 text-xs font-medium">Express</span>
+                                <span class="archive-tag rounded-full px-3 py-1 text-xs font-medium">Spotify API</span>
+                            </div>
+                        </td>
+                        <td class="py-4 text-sm">
+                            <a href="#" class="external-link group/link inline-flex items-center font-medium leading-tight">
+                                <span class="hidden sm:inline">github.com</span>
+                                <span class="sm:hidden">Link</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="ml-1 inline-block h-3 w-3 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path></svg>
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr class="project-row group">
+                        <td class="py-4 pr-4 text-sm">2023</td>
+                        <td class="py-4 pr-4 font-semibold text-[var(--text-primary)]">BM Lab Platform</td>
+                        <td class="hidden py-4 pr-4 text-sm lg:table-cell">BM Tech Lab</td>
+                        <td class="hidden py-4 pr-4 lg:table-cell">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="archive-tag rounded-full px-3 py-1 text-xs font-medium">Next.js</span>
+                                <span class="archive-tag rounded-full px-3 py-1 text-xs font-medium">Tailwind CSS</span>
+                            </div>
+                        </td>
+                        <td class="py-4 text-sm">
+                            <a href="#" class="external-link group/link inline-flex items-center font-medium leading-tight">
+                                bmtechlab.com
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="ml-1 inline-block h-3 w-3 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path></svg>
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr class="project-row group">
+                        <td class="py-4 pr-4 text-sm">2023</td>
+                        <td class="py-4 pr-4 font-semibold text-[var(--text-primary)]">E-Commerce Dashboard</td>
+                        <td class="hidden py-4 pr-4 text-sm lg:table-cell">Freelance</td>
+                        <td class="hidden py-4 pr-4 lg:table-cell">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="archive-tag rounded-full px-3 py-1 text-xs font-medium">TypeScript</span>
+                                <span class="archive-tag rounded-full px-3 py-1 text-xs font-medium">Prisma</span>
+                            </div>
+                        </td>
+                        <td class="py-4 text-sm">
+                            <a href="#" class="external-link group/link inline-flex items-center font-medium leading-tight">
+                                <span class="hidden sm:inline">Demo</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="ml-1 inline-block h-3 w-3 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path></svg>
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr class="project-row group">
+                        <td class="py-4 pr-4 text-sm">2022</td>
+                        <td class="py-4 pr-4 font-semibold text-[var(--text-primary)]">Portfolio v1</td>
+                        <td class="hidden py-4 pr-4 text-sm lg:table-cell">Personal</td>
+                        <td class="hidden py-4 pr-4 lg:table-cell">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="archive-tag rounded-full px-3 py-1 text-xs font-medium">HTML</span>
+                                <span class="archive-tag rounded-full px-3 py-1 text-xs font-medium">CSS</span>
+                            </div>
+                        </td>
+                        <td class="py-4 text-sm">
+                            <a href="#" class="external-link group/link inline-flex items-center font-medium leading-tight">
+                                v1.yousuf.com
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="ml-1 inline-block h-3 w-3 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path></svg>
+                            </a>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('portfolio-theme') || 'normal';
+            document.documentElement.setAttribute('data-theme', savedTheme === 'normal' ? '' : savedTheme);
+        }
+        
+        loadTheme();
+
+        window.addEventListener('storage', (e) => {
+            if (e.key === 'portfolio-theme') loadTheme();
+        });
+    </script>
+</body>
+</html>

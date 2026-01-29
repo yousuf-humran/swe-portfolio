@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yousuf Humran</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="tailwind.init.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="media/favicon-black.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/png" href="media/favicon-light.png" media="(prefers-color-scheme: dark)">
+</head>
+<body class="leading-relaxed selection:bg-teal-300 selection:text-teal-900 relative">
+    
+    <div id="spotlight" class="fixed inset-0 z-30 transition duration-300 pointer-events-none spotlight"></div>
+
+    <div class="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 lg:hidden w-[90%] max-w-[400px]">
+
+        <!-- NAV BAR MOBILE -->
+        <nav class="flex items-center justify-around rounded-full border border-white/10 bg-black/40 px-4 py-3 backdrop-blur-xl shadow-2xl">
+            <a href="#about" class="mobile-nav-link transition-colors hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </a>
+            <a href="#experience" class="mobile-nav-link transition-colors hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </a>
+            <a href="#projects" class="mobile-nav-link transition-colors hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+            </a>
+            <button onclick="toggleTheme()" class="p-2 transition-all active:scale-90 theme-btn">
+            </button>
+        </nav>
+    </div>
+
+    <div class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0">
+        <div class="lg:flex lg:justify-between lg:gap-4">
+            
+            <!-- MENU SECTION -->
+            <header class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
+                <div>
+                    <h1 class="text-4xl font-bold tracking-tight text-[var(--text-primary)] sm:text-5xl title-hover">Yousuf Humran</h1>
+                    <h2 class="mt-3 text-lg font-medium tracking-tight text-[var(--text-primary)] sm:text-xl">Frontend Engineer & Problem Solver</h2>
+                    <p class="mt-4 max-w-xs leading-normal">I build accessible, inclusive, and pixel-perfect digital experiences for the web.</p>
+                    
+                    <nav class="nav hidden lg:block mt-16">
+                        <ul class="w-max">
+                            <li><a class="nav-link group flex items-center py-3 active" href="#about">
+                                <span class="nav-indicator mr-4 h-px w-8 bg-[var(--nav-indicator)] transition-all group-hover:w-16 group-hover:bg-[var(--text-primary)]"></span>
+                                <span class="nav-text text-xs font-bold uppercase tracking-widest group-hover:text-[var(--text-primary)]">About</span>
+                            </a></li>
+                            <li><a class="nav-link group flex items-center py-3" href="#experience">
+                                <span class="nav-indicator mr-4 h-px w-8 bg-[var(--nav-indicator)] transition-all group-hover:w-16 group-hover:bg-[var(--text-primary)]"></span>
+                                <span class="nav-text text-xs font-bold uppercase tracking-widest group-hover:text-[var(--text-primary)]">Experience</span>
+                            </a></li>
+                            <li><a class="nav-link group flex items-center py-3" href="#projects">
+                                <span class="nav-indicator mr-4 h-px w-8 bg-[var(--nav-indicator)] transition-all group-hover:w-16 group-hover:bg-[var(--text-primary)]"></span>
+                                <span class="nav-text text-xs font-bold uppercase tracking-widest group-hover:text-[var(--text-primary)]">Projects</span>
+                            </a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="flex flex-col gap-8">
+
+                    <!-- Social icon -->
+
+                    <ul class="mt-7 lg:mt-0 ml-1 flex items-center gap-5">
+                        <li>
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="h-6 w-6">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                                </svg>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6">
+                                    <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.25 6.5 1.75 1.75 0 016.5 8.25zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/>
+                                </svg>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://codeforces.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Codeforces">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6">
+                                    <path d="M4.5 7.5a1.5 1.5 0 0 1 1.5 1.5v10.5a1.5 1.5 0 0 1-3 0V9a1.5 1.5 0 0 1 1.5-1.5zm9-4.5a1.5 1.5 0 0 1 1.5 1.5v15a1.5 1.5 0 0 1-3 0V4.5A1.5 1.5 0 0 1 13.5 3zm9 7.5a1.5 1.5 0 0 1 1.5 1.5v7.5a1.5 1.5 0 0 1-3 0V12a1.5 1.5 0 0 1 1.5-1.5z"/>
+                                </svg>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://goodreads.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Goodreads">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" fill="currentColor" class="h-6 w-6" aria-hidden="true">
+                                    <path d="M663.8 382.4c10.2 74.6-9.4 158-71.8 201.4-44.6 31-105.6 28.2-141.6 11.4-74.2-34.6-99-117.2-93.6-194.4 8.6-121.8 81.8-175.8 150.6-175 93.8-0.4 143.6 63.6 156.4 156.6zM960 176v672c0 61.8-50.2 112-112 112H176c-61.8 0-112-50.2-112-112V176c0-61.8 50.2-112 112-112h672c61.8 0 112 50.2 112 112zM724 626.4s-0.2-68-0.2-434.6h-58v80.6c-1.6 0.6-2.4-1-3.2-2.4-19.2-41.4-71.8-92.6-152-92-103.8 0.8-174.4 62.4-201.2 155.6-8.6 29.8-11.6 60.2-11 91.2 3.4 155.8 90.2 235.6 224.8 230.4 57.8-2.2 109-34 138-90.4 1-2 2.2-3.8 3.4-5.8 0.4 0.2 0.8 0.2 1.2 0.4 0.6 7.6 0.4 61.4 0.2 69-0.4 29.6-4 59-14.4 87-15.6 42-44.6 69.4-89 79-35.6 7.8-71.2 7.6-106.4-2.4-43-12.2-73-38-82.2-83.6-0.6-3.2-2.6-2.6-4.6-2.6h-53.6c1.6 21.2 6.4 40.6 17 58.4 48.4 81 165.4 97 256.4 74.8 99.8-24.6 134.6-109.8 134.8-212.6z"/>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <button onclick="toggleTheme()" class="hidden lg:flex items-center gap-3 p-2 rounded-lg transition-all hover:bg-white/10 active:scale-95 group w-max theme-btn">
+                        <span class="icon-slot"></span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- ABOUT ME SECTION -->
+
+            <main class="pt-24 lg:w-1/2 lg:py-24">
+                <section id="about" class="mb-16 scroll-mt-24 lg:mb-36">
+                    <h2 class="text-xl mb-5 font-bold uppercase tracking-widest text-[var(--text-primary)] lg:sr-only">About</h2>
+                    <p class="mb-4">
+                        I’m <span class="text-[var(--text-primary)] font-medium">Yousuf Humran</span>, a Computer Science undergraduate from <span class="text-[var(--text-primary)] font-medium">Bangladesh</span> with a passion for coding, problem-solving, and building real-world solutions. I enjoy working at the intersection of logic, design, and functionality, where complex problems meet clean, working code.
+                    </p>
+                    <p class="mb-4">
+                        I dive into both <span class="text-[var(--text-primary)] font-medium">competitive programming</span> and web development, sharpening my problem-solving skills while creating web applications that people can actually use. I’ve collaborated with startups like <span class="text-[var(--text-primary)] font-medium">Null Labz, BM Tech Lab, UVTR InfoTech Solutions, and UVTR Academy</span>, turning ideas into working products—sometimes smoothly, sometimes after convincing my code to cooperate.
+                    </p>
+                    <p class="mb-4">
+                        Outside of coding, I explore creative outlets and challenges: building quirky websites, watching mind-bending movies like Inception, Snowden, and The Wolf of Wall Street, or enjoying sports. I captained my school football team to two championships, occasionally wage digital wars on FIFA with my PS5, and harbor a secret talent for<span class="font-medium text-[var(--text-primary)]"> chess </span>(world domination plans pending).
+                    </p>
+
+                </section>
+
+
+                <!-- EXPERIENCE SECTION -->
+
+                <section id="experience" class="mb-16 scroll-mt-24 lg:mb-36">
+                    <h2 class="text-xl font-bold uppercase tracking-widest text-[var(--text-primary)] mb-8">Experience</h2>
+                    
+                    <div class="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 mb-12 hover:bg-[var(--card-hover)] p-4 rounded-lg">
+                        <header class="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-[var(--text-secondary)] sm:col-span-2">2024 — PRESENT</header>
+                        <div class="z-10 sm:col-span-6">
+                            <h3 class="font-medium leading-snug text-[var(--text-primary)] card-title-highlight flex items-center">
+                                Embedded Systems Engineer · Null Solutions 
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="ml-1 inline-block h-3 w-3 shrink-0 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path></svg>
+                            </h3>
+                            <p class="mt-2 text-sm leading-normal text-[var(--text-secondary)]">
+                                Architected end-to-end systems for mHealth and IoT healthcare wearables, including the flagship product Scribble Burn. Engineered affordable robotics and IoT devices and delivered technical solutions for 20+ international clients. Focused on the technical integration of everyday objects into the Internet of Things to create accessible, smart technology.
+                            </p>
+                            <ul class="mt-4 flex flex-wrap gap-2">
+                                <li class="experience-tag rounded-full px-3 py-1 text-xs font-medium">Java</li>
+                                <li class="experience-tag rounded-full px-3 py-1 text-xs font-medium">C/C++</li>
+                                <li class="experience-tag rounded-full px-3 py-1 text-xs font-medium">ROS</li>
+                                <li class="experience-tag rounded-full px-3 py-1 text-xs font-medium">Python</li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 mb-12 hover:bg-[var(--card-hover)] p-4 rounded-lg">
+                        <header class="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-[var(--text-secondary)] sm:col-span-2">2018 — 2024</header>
+                        <div class="z-10 sm:col-span-6">
+                            <h3 class="font-medium leading-snug text-[var(--text-primary)] card-title-highlight flex items-center">
+                                Full-Stack Developer · UVTR InfoTech
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="ml-1 inline-block h-3 w-3 shrink-0 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path></svg>
+                            </h3>
+                            <div class="text-sm text-[var(--text-secondary)] mb-2 italic">Frontend Developer</div>
+                            <p class="mt-2 text-sm leading-normal text-[var(--text-secondary)]">
+                                Developed scalable, full-stack applications with an emphasis on performance and accessible design. Expertly navigated the journey from raw design requirements to polished, user-centric products.
+                            </p>
+                            <ul class="mt-4 flex flex-wrap gap-2">
+                                <li class="experience-tag rounded-full px-3 py-1 text-xs font-medium">Next.js</li>
+                                <li class="experience-tag rounded-full px-3 py-1 text-xs font-medium">JavaScript</li>
+                                <li class="experience-tag rounded-full px-3 py-1 text-xs font-medium">TypeScript</li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- RESUME PDF -->
+                    <div class="mt-12 px-4">
+                        <a href="media/resume.pdf" class="view-all-link resume-link group/link text-lg hover:text-[var(--tag-text)]">
+                            View Full Resume
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="ml-1 inline-block h-3.5 w-3.5 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 motion-reduce:transition-none" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path></svg>
+                        </a>
+                    </div>
+                </section>
+
+
+                <!-- PROJECTS SECTION -->
+                <section id="projects" class="mb-16 scroll-mt-24 lg:mb-36">
+                    <h2 class="text-xl font-bold uppercase tracking-widest text-[var(--text-primary)] mb-8">Projects</h2>
+                     
+                    <!-- Project 01 -->
+                        <div class="group relative grid gap-4 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 mb-12 hover:bg-[var(--card-hover)] p-4 rounded-lg">
+                            <a href="https://yousufhumran.com/TechWave-website/" class="contents">
+                                <div class="z-10 sm:col-span-2">
+                                    <img src="media/TechWave.png" alt="Spotify Project" class="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/45 sm:order-1 object-cover aspect-video w-full" />
+                                </div>
+                                <div class="z-10 sm:col-span-6">
+                                    <h3 class="font-medium leading-snug text-[var(--text-primary)] card-title-highlight flex items-center text-lg">
+                                        TechWave Podcast Web
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="ml-1 inline-block h-4 w-4 shrink-0 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path></svg>
+                                    </h3>
+                                    <p class="mt-2 text-sm leading-relaxed text-[var(--text-secondary)]">
+                                        Dynamic Podcast Landing Page A high-energy web concept using vibrant gradients and neon aesthetics. Designed for the tech community, it prioritizes quick conversions and seamless cross-platform listening.
+                                    </p>
+                                    <ul class="mt-4 flex flex-wrap gap-2">
+                                        <li class="experience-tag rounded-full px-3 py-1 text-xs font-medium">TailwindCSS</li>
+                                        <li class="experience-tag rounded-full px-3 py-1 text-xs font-medium">JavaScript</li>
+                                    </ul>
+                                </div>
+                            </a> 
+                        </div>
+
+                        <!-- Project 02 -->
+                        <div class="group relative grid gap-4 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 mb-12 hover:bg-[var(--card-hover)] p-4 rounded-lg">
+                            <a href="https://yousufhumran.com/g3-architects-website/" class="contents">
+                                <div class="z-10 sm:col-span-2">
+                                    <img src="media/G3-Architects.png" alt="Spotify Project" class="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/45 sm:order-1 object-cover aspect-video w-full" />
+                                </div>
+                                <div class="z-10 sm:col-span-6">
+                                    <h3 class="font-medium leading-snug text-[var(--text-primary)] card-title-highlight flex items-center text-lg">
+                                        G3 Architects 
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="ml-1 inline-block h-4 w-4 shrink-0 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path></svg>
+                                    </h3>
+                                    <p class="mt-2 text-sm leading-relaxed text-[var(--text-secondary)]">
+                                       Modern Architectural Landing Page A clean, minimalist design focused on structural elegance and brand trust. It uses a warm, professional palette and spacious layouts to showcase high-end firm capabilities.
+                                    </p>
+                                    <ul class="mt-4 flex flex-wrap gap-2">
+                                        <li class="experience-tag rounded-full px-3 py-1 text-xs font-medium">HTML5</li>
+                                        <li class="experience-tag rounded-full px-3 py-1 text-xs font-medium">CSS3</li>
+                                    </ul>
+                                </div>
+                            </a> 
+                        </div>
+
+                        <!-- Project 03 -->
+                        <div class="group relative grid gap-4 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 mb-12 hover:bg-[var(--card-hover)] p-4 rounded-lg">
+                            <a href="https://yousufhumran.com/KnowledgeVault/" class="contents">
+                                <div class="z-10 sm:col-span-2">
+                                    <img src="media/KnowledgeVault.png" alt="Spotify Project" class="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/45 sm:order-1 object-cover aspect-video w-full" />
+                                </div>
+                                <div class="z-10 sm:col-span-6">
+                                    <h3 class="font-medium leading-snug text-[var(--text-primary)] card-title-highlight flex items-center text-lg">
+                                        KnowledgeVault 
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="ml-1 inline-block h-4 w-4 shrink-0 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path></svg>
+                                    </h3>
+                                    <p class="mt-2 text-sm leading-relaxed text-[var(--text-secondary)]">
+                                      Productivity SaaS Interface A sleek marketing site for a structured note-taking tool. Featuring a high-contrast dark mode and bold accents, it emphasizes clarity and organized digital workflows.
+                                    </p>
+                                    <ul class="mt-4 flex flex-wrap gap-2">
+                                        <li class="experience-tag rounded-full px-3 py-1 text-xs font-medium">HTML5</li>
+                                        <li class="experience-tag rounded-full px-3 py-1 text-xs font-medium">CSS3</li>
+                                    </ul>
+                                </div>
+                            </a> 
+                        </div>
+
+                    <!-- Project Archive -->
+                        <div class="mt-12">
+                            <a href="archive.html" class="view-all-link group/link text-lg hover:text-[var(--tag-text)]">
+                                <span>View Full Project Archive</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" 
+                                    class="ml-1 inline-block h-3.5 w-3.5 shrink-0 transition-all group-hover/link:translate-x-1.5" 
+                                    aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                        </div>
+                </section>
+                
+
+                <!-- CONTACT SECTION -->
+                <section id="contact" class="mb-16 scroll-mt-24 lg:mb-36">
+                    <div class="group relative px-4 py-6 ">
+                        <h3 class="text-xl font-bold uppercase tracking-widest text-[var(--text-primary)] mb-6">
+                            Get In Touch
+                        </h3>
+                        
+                        <p class="mt-2 text-sm leading-relaxed text-[var(--text-secondary)] mb-6">
+                            Although I'm not currently looking for any new opportunities, my inbox is always open. 
+                            Whether you have a question or just want to say hi, I’ll try my best to get back to you!
+                        </p>
+
+                        <div class="mt-4">
+                            <a href="mailto:yousufhumran3@gmail.com" 
+                            class="view-all-link resume-link group/contact inline-flex items-center px-6 py-3 border border-[var(--tag-text)] text-[var(--tag-text)] font-semibold rounded transition-all duration-300 hover:bg-[var(--tag-bg)] text-xs uppercase tracking-widest">
+                                <span>Say Hello</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="ml-2 h-4 w-4 shrink-0 transition-transform group-hover/contact:-translate-y-1 group-hover/contact:translate-x-1" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+
+
+                <!-- FOOTER SECTION -->
+                <footer class="max-w-md pb-16 text-sm text-[var(--text-secondary)] sm:pb-0">
+                    <p class="leading-normal">
+                        Designed in <a href="#" class="font-medium text-[var(--text-primary)] hover:text-[var(--tag-text)]">Figma</a> and coded in <a href="#" class="font-medium text-[var(--text-primary)] hover:text-[var(--tag-text)]">Visual Studio Code</a>. Built with <a href="#" class="font-medium text-[var(--text-primary)] hover:text-[var(--tag-text)]">Tailwind CSS</a> and Inter font.
+                    </p>
+                    <p class="mt-2 opacity-50">
+                        &copy; 2026 | Yousuf Humran
+                    </p>
+                </footer>
+            </main>
+
+        </div>
+
+    </div>
+    <!-- JS -->
+    <script src="style.js"></script>
+</body>
+</html>

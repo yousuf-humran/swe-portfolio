@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+
+/* --- Base Styles and Variables --- */
+@layer base {
+    :root {
+        --bg-color: #111111;
+        --text-primary: #ffffff;
+        --text-secondary: #a1a1aa;
+        --spotlight-color: rgba(255, 255, 255, 0.05);
+        --nav-indicator: #3f3f46;
+        --card-hover: rgba(26, 26, 26, 0.5);
+        --tag-bg: rgba(45, 212, 191, 0.1);
+        --tag-text: #5eead4;
+        --social-hover: #ffffff;
+    }
+
+    [data-theme="blue"] {
+        --bg-color: #0f172a;
+        --text-primary: #ffffff;
+        --text-secondary: #94a3b8;
+        --spotlight-color: rgba(29, 78, 216, 0.15);
+        --nav-indicator: #475569;
+        --card-hover: rgba(30, 41, 59, 0.5);
+        --tag-bg: rgba(45, 212, 191, 0.1);
+        --tag-text: #5eead4;
+        --social-hover: #ffffff; 
+    }
+
+    [data-theme="light"] {
+        --bg-color: #ffffff;
+        --text-primary: #0f172a;
+        --text-secondary: #475569;
+        --spotlight-color: rgba(15, 23, 42, 0.05);
+        --nav-indicator: #cbd5e1;
+        --card-hover: rgba(241, 245, 249, 0.7);
+        --tag-bg: rgba(37, 99, 235, 0.15); 
+        --tag-text: #1d4ed8; 
+        --social-hover: #2563eb;
+    }
+
+    body { 
+        font-family: 'Inter', sans-serif; 
+        background-color: var(--bg-color);
+        color: var(--text-secondary);
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+}
+
+/* --- Components & Animations --- */
+@layer components {
+    .title-hover {
+        transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: default;
+    }
+    .title-hover:hover {
+        color: var(--tag-text);
+    }
+
+    .group:hover .card-title-highlight {
+        color: var(--tag-text) !important;
+    }
+    .card-title-highlight {
+        transition: color 0.3s ease;
+    }
+
+    .social-icon {
+        display: inline-block; /* Added this: vertical transforms don't work on inline elements */
+        transition: all 0.3s ease;
+        color: var(--text-secondary);
+    }
+    .social-icon:hover { 
+        color: var(--social-hover) !important; /* Added !important to override tailwind text utilities */
+        transform: translateY(-3px);
+    }
+
+    .experience-tag {
+        background-color: var(--tag-bg) !important;
+        color: var(--tag-text) !important;
+        transition: all 0.3s ease;
+    }
+
+    .nav-link.active .nav-indicator { 
+        width: 3rem; 
+        background-color: var(--text-primary); 
+    }
+    .nav-link.active .nav-text { 
+        color: var(--text-primary); 
+    }
+    .mobile-nav-link.active { 
+        color: var(--text-primary); 
+        stroke-width: 3px; 
+    }
+
+    .view-all-link {
+        display: inline-flex;
+        align-items: center;
+        font-weight: 600;
+        color: var(--text-primary);
+        transition: color 0.3s ease;
+    }
+    .view-all-link:hover {
+        color: var(--tag-text);
+    }
+    .view-all-link svg {
+        transition: transform 0.3s ease;
+    }
+    .view-all-link:hover svg {
+        transform: translateX(4px);
+    }
+    .view-all-link.resume-link:hover svg {
+        transform: translate(4px, -4px);
+    }
+    .resume-link:hover {
+    color: var(--tag-text) !important;
+}
+}
+
+/* --- Utility Classes --- */
+@layer utilities {
+    .spotlight {
+        background: radial-gradient(600px at var(--x) var(--y), var(--spotlight-color), transparent 80%);
+    }
+}
