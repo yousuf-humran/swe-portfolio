@@ -8,12 +8,12 @@
         --text-secondary: #94a3b8;
         --spotlight-color: rgba(29, 78, 216, 0.15);
         --nav-indicator: #475569;
-        --card-hover: rgba(30, 41, 59, 0.5);
+        --card-hover: rgba(30, 41, 59, 0.4);
         --tag-bg: rgba(45, 212, 191, 0.1);
         --tag-text: #5eead4;
         --social-hover: #5eead4; 
         
-        /* Fixed: Initialization to prevent layout popping */
+        /* Initialization for Spotlight JS */
         --x: 50%;
         --y: 50%;
     }
@@ -46,13 +46,43 @@
         font-family: 'Inter', sans-serif; 
         background-color: var(--bg-color);
         color: var(--text-secondary);
-        transition: background-color 0.3s ease, color 0.3s ease;
+        /* Smooth theme transition */
+        transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         margin: 0;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
 }
 
 /* --- Components & Animations --- */
 @layer components {
+    /* The Secret Sauce: Navigation Line Easing */
+    .nav-indicator {
+        /* Magnetic Quartic easing: starts fast, ends slow and smooth */
+        transition: width 0.4s cubic-bezier(0.77, 0, 0.175, 1), 
+                    background-color 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        will-change: width;
+    }
+
+    .nav-text {
+        transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                    letter-spacing 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: color, letter-spacing;
+    }
+    
+    /* Force line expansion for active sections AND hovers */
+    .nav-link.active .nav-indicator,
+    .nav-link:hover .nav-indicator {
+        width: 4.5rem !important; /* Expansion to w-18 equivalent */
+        background-color: var(--text-primary) !important;
+    }
+
+    .nav-link.active .nav-text,
+    .nav-link:hover .nav-text {
+        color: var(--text-primary) !important;
+        letter-spacing: 0.15em;
+    }
+
     .title-hover {
         transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         cursor: default;
@@ -64,39 +94,31 @@
     .group:hover .card-title-highlight {
         color: var(--tag-text) !important;
     }
-    .card-title-highlight {
-        transition: color 0.3s ease;
-    }
 
     .social-icon {
         display: inline-block; 
-        transition: all 0.3s ease;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         color: var(--text-secondary);
-        z-index: 50; /* Ensure clickable over spotlight */
+        z-index: 50;
         position: relative;
     }
     .social-icon:hover { 
         color: var(--social-hover) !important; 
-        transform: translateY(-3px);
+        transform: translateY(-4px);
     }
 
     .experience-tag {
         background-color: var(--tag-bg) !important;
         color: var(--tag-text) !important;
-        transition: all 0.3s ease;
+        transition: all 0.2s ease;
     }
-
-    .nav-link.active .nav-indicator { 
-        width: 3rem; 
-        background-color: var(--text-primary); 
-    }
-    .nav-link.active .nav-text { 
-        color: var(--text-primary); 
+    .experience-tag:hover {
+        transform: scale(1.05);
     }
 
     /* --- Hamburger Menu Icon Logic --- */
     .menu-toggle {
-        display: none; /* Hidden on Desktop */
+        display: none; 
         z-index: 1001;
         background: none;
         border: none;
@@ -125,7 +147,6 @@
     .hamburger::before { top: -8px; }
     .hamburger::after { top: 8px; }
 
-    /* X Animation for Hamburger */
     .menu-toggle.active .hamburger { background-color: transparent; }
     .menu-toggle.active .hamburger::before { transform: rotate(45deg) translate(5px, 6px); }
     .menu-toggle.active .hamburger::after { transform: rotate(-45deg) translate(5px, -6px); }
@@ -144,8 +165,9 @@
         align-items: center;
         justify-content: center;
         gap: 2rem;
-        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        backdrop-filter: blur(10px);
+        /* Quintic slide-in */
+        transition: right 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        backdrop-filter: blur(12px);
     }
 
     .mobile-menu.open {
@@ -163,18 +185,19 @@
         color: var(--text-primary) !important; 
     }
 
+    /* --- Theme Button Transitions --- */
     .theme-btn {
         color: var(--text-secondary);
-        transition: color 0.3s ease;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         display: flex;
         align-items: center;
         gap: 8px;
         z-index: 50;
         position: relative;
     }
-
     .theme-btn:hover {
         color: var(--text-primary);
+        transform: scale(1.1);
     }
 
     /* --- General Links & Icons --- */
@@ -191,19 +214,15 @@
         color: var(--tag-text);
     }
     .view-all-link svg {
-        transition: transform 0.3s ease;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .view-all-link:hover svg {
-        transform: translateX(4px);
+        transform: translateX(6px);
     }
     .view-all-link.resume-link:hover svg {
-        transform: translate(4px, -4px);
-    }
-    .resume-link:hover {
-        color: var(--tag-text) !important;
+        transform: translate(6px, -6px);
     }
 
-    /* --- Responsive Display Logic --- */
     @media (max-width: 1024px) {
         .menu-toggle {
             display: block;
@@ -221,6 +240,8 @@
         pointer-events: none;
         position: fixed;
         inset: 0;
-        z-index: 1; /* Lower z-index so links are clickable */
+        z-index: 1;
+        /* Transition background to avoid flickering on low-spec screens */
+        transition: background 0.15s ease-out;
     }
 }
