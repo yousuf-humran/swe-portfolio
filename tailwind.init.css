@@ -207,6 +207,7 @@
         position: relative;
         z-index: 50;
     }
+    
     .view-all-link:hover { color: var(--tag-text); }
     .view-all-link svg { transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
     .view-all-link:hover svg { transform: translateX(6px); }
@@ -216,6 +217,7 @@
         .mobile-header-bar { display: flex; }
         body { padding-top: 64px; } /* Ensures content starts after the sticky bar */
     }
+
 }
 
 /* --- Utility Classes --- */
