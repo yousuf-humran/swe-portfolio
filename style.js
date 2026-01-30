@@ -15,6 +15,7 @@ const desktopLinks = document.querySelectorAll('.nav-link');
 const mobileLinks = document.querySelectorAll('.mobile-nav-link');
 const menuToggle = document.querySelector('.menu-toggle');
 const mobileMenu = document.querySelector('.mobile-menu');
+const mobileHeaderText = document.getElementById('mobile-header-text'); // Targeted text element
 
 // --- Theme Logic ---
 function applyTheme(theme) {
@@ -22,7 +23,6 @@ function applyTheme(theme) {
     localStorage.setItem('portfolio-theme', theme);
     currentThemeIndex = themes.indexOf(theme);
     
-    // Fixed: Ensure icons update across all theme buttons found in DOM
     const btnIcons = document.querySelectorAll('.theme-btn');
     btnIcons.forEach(btn => {
         const container = btn.querySelector('.icon-slot');
@@ -33,7 +33,7 @@ function applyTheme(theme) {
         }
     });
 
-    onScroll(); // Refresh colors for active links based on theme change
+    onScroll(); 
 }
 
 function toggleTheme() {
@@ -45,8 +45,6 @@ function toggleTheme() {
 function toggleMobileMenu() {
     const isOpen = mobileMenu.classList.toggle('open');
     menuToggle.classList.toggle('active');
-    
-    // Prevent background scrolling when menu is open
     document.body.style.overflow = isOpen ? 'hidden' : 'auto';
 }
 
@@ -64,12 +62,14 @@ window.addEventListener('mousemove', e => {
     }
 });
 
-// --- Scroll Spy Logic ---
+// --- Scroll Spy & Dynamic Header Logic ---
 function onScroll() {
     let current = '';
+    
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        if (window.scrollY >= sectionTop - 250) {
+        // Adjusted offset (150px) to trigger the name change slightly before hitting the section
+        if (window.scrollY >= sectionTop - 150) {
             current = section.getAttribute('id');
         }
     });
@@ -81,6 +81,22 @@ function onScroll() {
     mobileLinks.forEach(link => {
         link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
     });
+
+    // --- Mobile Header Text Logic ---
+    if (mobileHeaderText) {
+        if (current === 'about') {
+            mobileHeaderText.innerText = "ABOUT";
+        } else if (current === 'experience') {
+            mobileHeaderText.innerText = "EXPERIENCE";
+        } else if (current === 'projects') {
+            mobileHeaderText.innerText = "PROJECTS";
+        } else if (current === 'contact') {
+            mobileHeaderText.innerText = "CONTACT";
+        } else {
+            // Default back to your name if you scroll to the very top
+            mobileHeaderText.innerText = "YOUSUF HUMRAN";
+        }
+    }
 }
 
 // --- Event Listeners ---
@@ -90,12 +106,10 @@ if (menuToggle) {
     menuToggle.addEventListener('click', toggleMobileMenu);
 }
 
-// Close mobile menu when any link is clicked
 mobileLinks.forEach(link => {
     link.addEventListener('click', closeMobileMenu);
 });
 
-// Fixed: Added event listener to handle theme toggling correctly
 document.querySelectorAll('.theme-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -111,7 +125,5 @@ onScroll();
 /* --- Console Message --- */
 console.clear();
 const mainStyle = "color: #5eead4; background: #111111; font-size: 14px; font-weight: bold; padding: 10px; border-radius: 4px; border: 1px solid #5eead4; font-family: 'Inter', sans-serif";
-const secondaryStyle = "color: #a1a1aa; font-size: 12px; font-family: monospace;";
-
 console.log("%c🚀 Developed by Yousuf Humran", mainStyle);
 console.log("%cGitHub: https://github.com/yousuf-humran", "color: #5eead4; font-size: 12px; text-decoration: underline;");
