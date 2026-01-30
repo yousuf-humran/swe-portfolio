@@ -1,21 +1,8 @@
 @import "tailwindcss";
 
-
 /* --- Base Styles and Variables --- */
 @layer base {
     :root {
-        --bg-color: #111111;
-        --text-primary: #ffffff;
-        --text-secondary: #a1a1aa;
-        --spotlight-color: rgba(255, 255, 255, 0.05);
-        --nav-indicator: #3f3f46;
-        --card-hover: rgba(26, 26, 26, 0.5);
-        --tag-bg: rgba(45, 212, 191, 0.1);
-        --tag-text: #5eead4;
-        --social-hover: #ffffff;
-    }
-
-    [data-theme="blue"] {
         --bg-color: #0f172a;
         --text-primary: #ffffff;
         --text-secondary: #94a3b8;
@@ -24,7 +11,19 @@
         --card-hover: rgba(30, 41, 59, 0.5);
         --tag-bg: rgba(45, 212, 191, 0.1);
         --tag-text: #5eead4;
-        --social-hover: #ffffff; 
+        --social-hover: #5eead4; 
+    }
+
+    [data-theme="dark"] {
+        --bg-color: #111111;
+        --text-primary: #ffffff;
+        --text-secondary: #a1a1aa;
+        --spotlight-color: rgba(255, 255, 255, 0.05);
+        --nav-indicator: #3f3f46;
+        --card-hover: rgba(26, 26, 26, 0.5);
+        --tag-bg: rgba(45, 212, 191, 0.1);
+        --tag-text: #5eead4;
+        --social-hover: #5eead4;
     }
 
     [data-theme="light"] {
@@ -65,12 +64,12 @@
     }
 
     .social-icon {
-        display: inline-block; /* Added this: vertical transforms don't work on inline elements */
+        display: inline-block; 
         transition: all 0.3s ease;
         color: var(--text-secondary);
     }
     .social-icon:hover { 
-        color: var(--social-hover) !important; /* Added !important to override tailwind text utilities */
+        color: var(--social-hover) !important; 
         transform: translateY(-3px);
     }
 
@@ -87,11 +86,35 @@
     .nav-link.active .nav-text { 
         color: var(--text-primary); 
     }
+
+    /* --- Mobile Nav & Icon Fixes --- */
+    .mobile-nav-link { 
+        color: var(--text-secondary); 
+        transition: color 0.3s ease;
+    }
+    
     .mobile-nav-link.active { 
-        color: var(--text-primary); 
+        color: var(--text-primary) !important; 
         stroke-width: 3px; 
     }
 
+    .theme-btn {
+        color: var(--text-secondary);
+        transition: color 0.3s ease;
+    }
+
+    .theme-btn:hover {
+        color: var(--text-primary);
+    }
+
+    /* Target the container in the screenshot to ensure it adapts to themes */
+    .mobile-nav-container {
+        background-color: var(--bg-color);
+        border: 1px solid var(--nav-indicator);
+        backdrop-filter: blur(12px);
+    }
+
+    /* --- General Links --- */
     .view-all-link {
         display: inline-flex;
         align-items: center;
@@ -112,8 +135,8 @@
         transform: translate(4px, -4px);
     }
     .resume-link:hover {
-    color: var(--tag-text) !important;
-}
+        color: var(--tag-text) !important;
+    }
 }
 
 /* --- Utility Classes --- */
