@@ -5,16 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yousuf Humran</title>
 
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="tailwind.init.css">
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Favicons -->
     <link rel="icon" type="image/png" href="media/favicon-black.png" media="(prefers-color-scheme: light)">
     <link rel="icon" type="image/png" href="media/favicon-light.png" media="(prefers-color-scheme: dark)">
 </head>
@@ -22,28 +19,28 @@
     
     <div id="spotlight" class="fixed inset-0 z-30 transition duration-300 pointer-events-none spotlight"></div>
 
-    <div class="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 lg:hidden w-[90%] max-w-[400px]">
+    <button class="menu-toggle lg:hidden fixed top-6 right-6 z-[1001] p-3 rounded-lg bg-black/20 backdrop-blur-md border border-white/10" aria-label="Toggle Menu">
+        <div class="hamburger"></div>
+    </button>
 
-        <!-- NAV BAR MOBILE -->
-        <nav class="flex items-center justify-around rounded-full border border-white/10 bg-black/40 px-4 py-3 backdrop-blur-xl shadow-2xl">
-            <a href="#about" class="mobile-nav-link transition-colors hover:text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            </a>
-            <a href="#experience" class="mobile-nav-link transition-colors hover:text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-            </a>
-            <a href="#projects" class="mobile-nav-link transition-colors hover:text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
-            </a>
-            <button onclick="toggleTheme()" class="p-2 transition-all active:scale-90 theme-btn">
-            </button>
-        </nav>
-    </div>
+<div class="mobile-menu lg:hidden">
+    <nav class="flex flex-col items-center gap-10">
+        <a href="#about" class="mobile-nav-link text-2xl font-bold tracking-widest uppercase">About</a>
+        <a href="#experience" class="mobile-nav-link text-2xl font-bold tracking-widest uppercase">Experience</a>
+        <a href="#projects" class="mobile-nav-link text-2xl font-bold tracking-widest uppercase">Projects</a>
+        
+        <div class="h-px w-12 bg-white/10 my-4"></div>
+
+        <button class="theme-btn flex items-center gap-3 px-6 py-3 rounded-full border border-white/10 bg-white/5 transition-all active:scale-95">
+            <span class="icon-slot"></span>
+            <span class="text-sm font-medium uppercase tracking-widest">Toggle Theme</span>
+        </button>
+    </nav>
+</div>
 
     <div class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0">
         <div class="lg:flex lg:justify-between lg:gap-4">
             
-            <!-- MENU SECTION -->
             <header class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
                 <div>
                     <h1 class="text-4xl font-bold tracking-tight text-[var(--text-primary)] sm:text-5xl title-hover">Yousuf Humran</h1>
@@ -69,8 +66,6 @@
                 </div>
 
                 <div class="flex flex-col gap-8">
-
-                    <!-- Social icon -->
 
                     <ul class="mt-7 lg:mt-0 ml-1 flex items-center gap-5">
                         <li>
@@ -106,13 +101,11 @@
                         </li>
                     </ul>
 
-                    <button onclick="toggleTheme()" class="hidden lg:flex items-center gap-3 p-2 rounded-lg transition-all hover:bg-white/10 active:scale-95 group w-max theme-btn">
+                    <button class="hidden lg:flex items-center gap-3 p-2 rounded-lg transition-all hover:bg-white/10 active:scale-95 group w-max theme-btn">
                         <span class="icon-slot"></span>
                     </button>
                 </div>
             </header>
-
-            <!-- ABOUT ME SECTION -->
 
             <main class="pt-24 lg:w-1/2 lg:py-24">
                 <section id="about" class="mb-16 scroll-mt-24 lg:mb-36">
@@ -129,8 +122,6 @@
 
                 </section>
 
-
-                <!-- EXPERIENCE SECTION -->
 
                 <section id="experience" class="mb-16 scroll-mt-24 lg:mb-36">
                     <h2 class="text-xl font-bold uppercase tracking-widest text-[var(--text-primary)] mb-8">Experience</h2>
@@ -175,7 +166,6 @@
                         </div>
                     </div>
 
-                    <!-- RESUME PDF -->
                     <div class="mt-12 px-4">
                         <a href="media/resume.pdf" class="view-all-link resume-link group/link text-lg hover:text-[var(--tag-text)]">
                             View Full Resume
@@ -185,12 +175,10 @@
                 </section>
 
 
-                <!-- PROJECTS SECTION -->
                 <section id="projects" class="mb-16 scroll-mt-24 lg:mb-36">
                     <h2 class="text-xl font-bold uppercase tracking-widest text-[var(--text-primary)] mb-8">Projects</h2>
                      
-                    <!-- Project 01 -->
-                        <div class="group relative grid gap-4 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 mb-12 hover:bg-[var(--card-hover)] p-4 rounded-lg">
+                    <div class="group relative grid gap-4 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 mb-12 hover:bg-[var(--card-hover)] p-4 rounded-lg">
                             <a href="https://yousuf-humran.github.io/TechWave-website/" class="contents">
                                 <div class="z-10 sm:col-span-2">
                                     <img src="media/TechWave.png" alt="Spotify Project" class="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/45 sm:order-1 object-cover aspect-video w-full" />
@@ -211,7 +199,6 @@
                             </a> 
                         </div>
 
-                        <!-- Project 02 -->
                         <div class="group relative grid gap-4 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 mb-12 hover:bg-[var(--card-hover)] p-4 rounded-lg">
                             <a href="https://yousuf-humran.github.io/g3-architects-website/" class="contents">
                                 <div class="z-10 sm:col-span-2">
@@ -233,7 +220,6 @@
                             </a> 
                         </div>
 
-                        <!-- Project 03 -->
                         <div class="group relative grid gap-4 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 mb-12 hover:bg-[var(--card-hover)] p-4 rounded-lg">
                             <a href="https://yousuf-humran.github.io/KnowledgeVault/" class="contents">
                                 <div class="z-10 sm:col-span-2">
@@ -255,8 +241,7 @@
                             </a> 
                         </div>
 
-                    <!-- Project Archive -->
-                        <div class="mt-12 px-4">
+                    <div class="mt-12 px-4">
                             <a href="archive.html" class="view-all-link group/link text-lg hover:text-[var(--tag-text)]">
                                 <span>View Full Project Archive</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" 
@@ -269,7 +254,6 @@
                 </section>
                 
 
-                <!-- CONTACT SECTION -->
                 <section id="contact" class="mb-16 scroll-mt-24 lg:mb-36">
                     <div class="group relative py-6 ">
                         <h3 class="text-xl font-bold uppercase tracking-widest text-[var(--text-primary)] mb-6">
@@ -295,7 +279,6 @@
 
 
 
-                <!-- FOOTER SECTION -->
                 <footer class="max-w-md pb-16 text-sm text-[var(--text-secondary)] sm:pb-0">
                     <p class="leading-normal">
                         Designed in <a href="#" class="font-medium text-[var(--text-primary)] hover:text-[var(--tag-text)]">Figma</a> and coded in <a href="#" class="font-medium text-[var(--text-primary)] hover:text-[var(--tag-text)]">Visual Studio Code</a>. Built with <a href="#" class="font-medium text-[var(--text-primary)] hover:text-[var(--tag-text)]">Tailwind CSS</a> and Inter font.
@@ -309,7 +292,6 @@
         </div>
 
     </div>
-    <!-- JS -->
     <script src="style.js"></script>
 </body>
 </html>

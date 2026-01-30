@@ -3,64 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Archive</title>
+    <title>Project Archive | Yousuf Humran</title>
     <script src="https://cdn.tailwindcss.com"></script>
  
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Favicons -->
     <link rel="icon" type="image/png" href="media/favicon-black.png" media="(prefers-color-scheme: light)">
     <link rel="icon" type="image/png" href="media/favicon-light.png" media="(prefers-color-scheme: dark)">
     
     <style>
         :root {
-            --bg-color: #111111;
-            --text-primary: #ffffff;
-            --text-secondary: #a1a1aa;
-            --nav-indicator: #3f3f46;
-            --tag-bg: rgba(45, 212, 191, 0.1);
-            --tag-text: #5eead4;
-            --row-hover: rgba(255, 255, 255, 0.03);
-        }
-
-        [data-theme="blue"] {
             --bg-color: #0f172a;
             --text-primary: #ffffff;
             --text-secondary: #94a3b8;
-            --nav-indicator: #475569;
+            --spotlight-color: rgba(29, 78, 216, 0.15);
             --tag-bg: rgba(45, 212, 191, 0.1);
             --tag-text: #5eead4;
             --row-hover: rgba(30, 41, 59, 0.5);
+            --x: 50%;
+            --y: 50%;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #111111;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --spotlight-color: rgba(255, 255, 255, 0.05);
+            --tag-bg: rgba(45, 212, 191, 0.1);
+            --tag-text: #5eead4;
+            --row-hover: rgba(26, 26, 26, 0.5);
         }
 
         [data-theme="light"] {
             --bg-color: #ffffff;
             --text-primary: #0f172a;
             --text-secondary: #475569;
-            --nav-indicator: #cbd5e1;
-            --tag-bg: rgba(37, 99, 235, 0.1); 
+            --spotlight-color: rgba(15, 23, 42, 0.05);
+            --tag-bg: rgba(37, 99, 235, 0.15); 
             --tag-text: #1d4ed8; 
-            --row-hover: rgba(0, 0, 0, 0.02);
+            --row-hover: rgba(241, 245, 249, 0.7);
         }
 
         body { 
             font-family: 'Inter', sans-serif; 
             background-color: var(--bg-color);
             color: var(--text-secondary);
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin: 0;
+        }
+
+        .spotlight {
+            background: radial-gradient(600px at var(--x) var(--y), var(--spotlight-color), transparent 80%);
+            pointer-events: none;
+            position: fixed;
+            inset: 0;
+            z-index: 1;
         }
 
         .archive-tag {
-            background-color: var(--tag-bg);
-            color: var(--tag-text);
+            background-color: var(--tag-bg) !important;
+            color: var(--tag-text) !important;
         }
 
         .back-link {
             color: var(--tag-text);
             transition: transform 0.3s ease;
+            position: relative;
+            z-index: 50;
         }
         .back-link:hover { transform: translateX(-4px); }
 
@@ -75,14 +86,20 @@
 
         .external-link {
             transition: color 0.3s ease;
+            position: relative;
+            z-index: 50;
         }
         .external-link:hover {
             color: var(--tag-text);
         }
+        
+        table { position: relative; z-index: 10; }
     </style>
 </head>
 
-<body class="leading-relaxed selection:bg-teal-300 selection:text-teal-900">
+<body class="leading-relaxed selection:bg-teal-300 selection:text-teal-900 relative">
+
+    <div id="spotlight" class="fixed inset-0 z-30 transition duration-300 pointer-events-none spotlight"></div>
 
     <div class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24">
         
@@ -107,7 +124,6 @@
                     </tr>
                 </thead>
                 <tbody class="align-baseline">
-                    <!-- 5 -->
                     <tr class="project-row group">
                         <td class="py-4 pr-4 text-sm">2025</td>
                         <td class="py-4 pr-4 font-semibold text-[var(--text-primary)]">TechWave Podcast web</td>
@@ -127,7 +143,6 @@
                             </a>
                         </td>
                     </tr>
-                    <!-- 4 -->
                     <tr class="project-row group">
                         <td class="py-4 pr-4 text-sm">2025</td>
                         <td class="py-4 pr-4 font-semibold text-[var(--text-primary)]">BM Lab Platform</td>
@@ -148,7 +163,6 @@
                         </td>
                     </tr>
 
-                    <!-- 3 -->
                     <tr class="project-row group">
                         <td class="py-4 pr-4 text-sm">2025</td>
                         <td class="py-4 pr-4 font-semibold text-[var(--text-primary)]">Courier Management System</td>
@@ -169,7 +183,6 @@
                         </td>
                     </tr>
 
-                    <!-- 2 -->
                     <tr class="project-row group">
                         <td class="py-4 pr-4 text-sm">2024</td>
                         <td class="py-4 pr-4 font-semibold text-[var(--text-primary)]">Joseph H. SWE Portfolio </td>
@@ -190,7 +203,6 @@
                         </td>
                     </tr>
 
-                    <!-- 1 -->
                     <tr class="project-row group">
                         <td class="py-4 pr-4 text-sm">2024</td>
                         <td class="py-4 pr-4 font-semibold text-[var(--text-primary)]">KnowledgeVault SaaS web</td>
@@ -217,6 +229,8 @@
     </div>
 
     <script>
+        const spotlight = document.getElementById('spotlight');
+
         function loadTheme() {
             const savedTheme = localStorage.getItem('portfolio-theme') || 'normal';
             document.documentElement.setAttribute('data-theme', savedTheme === 'normal' ? '' : savedTheme);
@@ -224,8 +238,17 @@
         
         loadTheme();
 
+        // Sync theme if changed in another tab/window
         window.addEventListener('storage', (e) => {
             if (e.key === 'portfolio-theme') loadTheme();
+        });
+
+        // Spotlight Mouse Tracking
+        window.addEventListener('mousemove', e => {
+            if(spotlight) {
+                spotlight.style.setProperty('--x', `${e.clientX}px`);
+                spotlight.style.setProperty('--y', `${e.clientY}px`);
+            }
         });
     </script>
 </body>
